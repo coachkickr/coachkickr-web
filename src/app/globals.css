@@ -1,17 +1,34 @@
 @import "tailwindcss";
 
+/* -------------------------------
+   Design Tokens
+-------------------------------- */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* CoachKickr Primary */
+  --primary: #3457D2;
+  --primary-foreground: #22a800;
 }
 
+/* -------------------------------
+   Tailwind Theme Bridge (v4)
+-------------------------------- */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --font-sans: var(--font-geist-sans, system-ui, sans-serif);
+  --font-mono: var(--font-geist-mono, monospace);
 }
 
+/* -------------------------------
+   Dark Mode
+-------------------------------- */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +36,11 @@
   }
 }
 
+/* -------------------------------
+   Base Styles
+-------------------------------- */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
